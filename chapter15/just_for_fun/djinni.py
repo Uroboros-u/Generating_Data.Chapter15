@@ -88,9 +88,9 @@ df= pd.DataFrame(data)
 
 df['date'] = pd.to_datetime(df['date'], format='%d.%m.%Y')
 
-df["candidates_minus_jobs"] = df["candidates"] - df["jobs"]
+fig = px.bar(df, x="date", y=["jobs", "candidates"], barmode="group", title="Candidates vs Jobs over Time")
 
 
-fig = px.bar(df, x="date", y="candidates_minus_jobs",barmode="group", title="Candidates vs Jobs over Time")
+# fig.write_html('Job_statistics.html')
 fig.show()
 
